@@ -573,13 +573,13 @@ class HtmlFormatter(Formatter):
                 if i % st == 0:
                     if i % sp == 0:
                         if aln:
-                            lines.append('<a href="#%s-%d" class="special">%*d</a>' %
+                            lines.append('<a href="#%s%d" class="special">%*d</a>' %
                                          (la, i, mw, i))
                         else:
                             lines.append('<span class="special">%*d</span>' % (mw, i))
                     else:
                         if aln:
-                            lines.append('<a href="#%s-%d">%*d</a>' % (la, i, mw, i))
+                            lines.append('<a href="#%s%d">%*d</a>' % (la, i, mw, i))
                         else:
                             lines.append('%*d' % (mw, i))
                 else:
@@ -590,7 +590,7 @@ class HtmlFormatter(Formatter):
             for i in range(fl, fl+lncount):
                 if i % st == 0:
                     if aln:
-                        lines.append('<a href="#%s-%d">%*d</a>' % (la, i, mw, i))
+                        lines.append('<a href="#%s%d">%*d</a>' % (la, i, mw, i))
                     else:
                         lines.append('%*d' % (mw, i))
                 else:
@@ -656,7 +656,7 @@ class HtmlFormatter(Formatter):
         for t, line in inner:
             if t:
                 i += 1
-                yield 1, '<a name="%s-%d"></a>' % (s, i) + line
+                yield 1, '<a name="%s%d"></a>' % (s, i) + line
             else:
                 yield 0, line
 
@@ -666,7 +666,7 @@ class HtmlFormatter(Formatter):
         for t, line in inner:
             if t:
                 i += 1
-                yield 1, '<span id="%s-%d">%s</span>' % (s, i, line)
+                yield 1, '<span id="%s%d">%s</span>' % (s, i, line)
             else:
                 yield 0, line
 
