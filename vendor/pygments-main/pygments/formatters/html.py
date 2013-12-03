@@ -573,13 +573,13 @@ class HtmlFormatter(Formatter):
                 if i % st == 0:
                     if i % sp == 0:
                         if aln:
-                            lines.append('<a id="L%s%d" href="#%s%d" class="special">%*d</a>' %
-                                         (la, i, mw, i))
+                            lines.append('<a id="%s%d" href="#%s%d" class="special">%*d</a>' %
+                                         (la, i, la, i, mw, i))
                         else:
                             lines.append('<span class="special">%*d</span>' % (mw, i))
                     else:
                         if aln:
-                            lines.append('<a id="L%s%d" href="#%s%d">%*d</a>' % (la, i, mw, i))
+                            lines.append('<a id="%s%d" href="#%s%d">%*d</a>' % (la, i, la, i, mw, i))
                         else:
                             lines.append('%*d' % (mw, i))
                 else:
@@ -590,7 +590,7 @@ class HtmlFormatter(Formatter):
             for i in range(fl, fl+lncount):
                 if i % st == 0:
                     if aln:
-                        lines.append('<a id="L%s%d" href="#%s%d">%*d</a>' % (la, i, mw, i))
+                        lines.append('<a id="%s%d" href="#%s%d">%*d</a>' % (la, i, la, i, mw, i))
                     else:
                         lines.append('%*d' % (mw, i))
                 else:
